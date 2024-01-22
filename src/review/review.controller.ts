@@ -8,18 +8,22 @@ import {
   Post,
 } from '@nestjs/common';
 import { ReviewModel } from './review.model/review.model';
+import { ConfigService } from '@nestjs/config';
 
 @Controller('review')
 export class ReviewController {
+  constructor(private configService: ConfigService) { }
+
   @Post('create')
   async create(@Body() dto: Omit<ReviewModel, '_id'>) {
     console.info(dto);
   }
 
   @HttpCode(200)
-  @Delete(':productId')
+  @Delete('/:productId')
   async delete(@Param('productId') productId: string) {
-    console.info(productId);
+    console.log(productId);
+    return this.configService.get('TEST');
   }
 
   @HttpCode(200)
