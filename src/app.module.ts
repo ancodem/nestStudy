@@ -5,7 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { TopPageModule } from './top-page/top-page.module';
 import { ReviewModule } from './review/review.module';
 import { ProductModule } from './product/product.module';
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -14,8 +15,9 @@ import { ConfigModule } from '@nestjs/config'
     ReviewModule,
     ProductModule,
     ConfigModule.forRoot(),
+    MongooseModule.forRoot('mongodb://0.0.0.0:27017'),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
