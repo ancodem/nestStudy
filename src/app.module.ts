@@ -7,6 +7,7 @@ import { ReviewModule } from './review/review.module';
 import { ProductModule } from './product/product.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     ProductModule,
     ConfigModule.forRoot(),
     MongooseModule.forRoot('mongodb://0.0.0.0:27017'),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
