@@ -1,5 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { MongooseModuleFactoryOptions } from '@nestjs/mongoose';
+import { EnvKeyFor } from 'src/constant/config.constant';
 
 export const getMongoConfig = (
   configService: ConfigService,
@@ -11,12 +12,12 @@ export const getMongoConfig = (
 
 const getMongoUri = (configService: ConfigService): string =>
   'mongodb://' +
-  configService.get('MONGO_USERNAME') +
+  configService.get(EnvKeyFor.MONGO_USERNAME) +
   ':' +
-  configService.get('MONGO_PASSWORD') +
+  configService.get(EnvKeyFor.MONGO_PASSWORD) +
   '@' +
-  configService.get('MONGO_HOST') +
+  configService.get(EnvKeyFor.MONGO_HOST) +
   ':' +
-  configService.get('MONGO_PORT') +
+  configService.get(EnvKeyFor.MONGO_PORT) +
   '/' +
-  configService.get('MONGO_AUTHDB');
+  configService.get(EnvKeyFor.MONGO_AUTHDB);

@@ -7,15 +7,15 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { ReviewModel } from './review.model/review.model';
+import { Review } from './review.model/review.model';
 import { ConfigService } from '@nestjs/config';
 
 @Controller('review')
 export class ReviewController {
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService) {}
 
   @Post('create')
-  async create(@Body() dto: Omit<ReviewModel, '_id'>) {
+  async create(@Body() dto: Review) {
     console.info(dto);
   }
 
