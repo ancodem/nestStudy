@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { MongooseModuleFactoryOptions } from '@nestjs/mongoose';
-import { EnvKeyFor } from 'src/constant/config.constant';
+import { EnvKeyFor } from '../constant/config.constant';
 
 export const getMongoConfig = (
   configService: ConfigService,
