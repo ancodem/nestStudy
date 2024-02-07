@@ -8,7 +8,7 @@ import {
   Patch,
   HttpCode,
 } from '@nestjs/common';
-import { Product } from './product.model/product.model';
+import { Product } from './model/product.model';
 import { FindProductDto } from './dto/find-product.dto';
 
 @Controller('product')

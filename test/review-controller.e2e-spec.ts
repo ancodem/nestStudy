@@ -39,6 +39,22 @@ describe('ReviewController (e2e)', () => {
     expect(statusCode).toBe(201);
   });
 
+  it('/review/create (POST) - fail with rating 0', async () => {
+    const { statusCode } = await request(app.getHttpServer())
+      .post('/review/create')
+      .send({ ...createReviewDto, rating: 0 });
+
+    expect(statusCode).toBe(400);
+  });
+
+  it('/review/create (POST) - fail with rating 6', async () => {
+    const { statusCode } = await request(app.getHttpServer())
+      .post('/review/create')
+      .send({ ...createReviewDto, rating: 6 });
+
+    expect(statusCode).toBe(400);
+  });
+
   it('/review/byProduct/:id (GET) - success', async () => {
     const { statusCode, body } = await request(app.getHttpServer()).get(
       '/review/byProduct/' + productId,
@@ -48,6 +64,14 @@ describe('ReviewController (e2e)', () => {
     expect(body.length).toBe(1);
 
     expect(statusCode).toBe(200);
+  });
+
+  it('/review/byProduct/:id (GET) - fail', async () => {
+    const { statusCode } = await request(app.getHttpServer()).get(
+      '/review/byProduct/',
+    );
+
+    expect(statusCode).toBe(404);
   });
 
   it('/review (DELETE) - success', async () => {

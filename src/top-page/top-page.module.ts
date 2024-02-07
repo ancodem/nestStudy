@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TopPageController } from './top-page.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TopPage, TopPageSchema } from './top-page.model/top-page.model';
+import { TopPage, TopPageSchema } from './model/top-page.model';
 
 @Module({
   imports: [

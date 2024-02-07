@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Review, ReviewDocument } from './review.model/review.model';
+import { Review, ReviewDocument } from './model/review.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { Model, Types } from 'mongoose';
